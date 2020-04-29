@@ -11,7 +11,7 @@ echo "nameserver 8.8.8.8" > /etc/resolv.conf
 yum localinstall http://packetfence.org/downloads/PacketFence/RHEL7/packetfence-release-7.${PFBRANCH}.noarch.rpm -y
 
 # Utils installation
-yum install ntpd -y
+yum install ntp -y
 
 # PacketFence installation
 yum install perl -y
