@@ -17,5 +17,10 @@ build {
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'"
     script = "scripts/install-pf.sh"
+    environment_vars = [
+      "PFREPO=${var.pf_repo}",
+      "PFPACKAGE=${var.pf_package}",
+      "PFBRANCH=${var.pf_branch}"
+    ]
   }
 }

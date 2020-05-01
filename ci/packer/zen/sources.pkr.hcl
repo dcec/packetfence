@@ -1,5 +1,6 @@
+# VirtualBox builds
 source "virtualbox-iso" "centos-7" {
-  vm_name = "PacketFence-ZEN"
+  vm_name = "${var.vm_name}"
   disk_size = "40000"
   guest_os_type = "RedHat_64"
   hard_drive_interface = "scsi"
@@ -23,15 +24,20 @@ source "virtualbox-iso" "centos-7" {
   shutdown_command = "sudo poweroff"
   # export
   format = "ova"
+  export_opts = [
+    "--manifest"
+   ]
+  output_directory = "${var.output_directory}"
 }
 
+# VMware builds
 source "vmware-iso" "centos-7" {
-  vm_name = "PacketFence-ZEN"
+  vm_name = "${var.vm_name}"
   disk_size = "40000"
   guest_os_type = "centos-64"
   disk_adapter_type = "scsi"
   headless = "true"
-  vmx_data {
+  vmx_data = {
     memsize = 12288
     numvcpus = 4
   } 
@@ -48,5 +54,6 @@ source "vmware-iso" "centos-7" {
   ssh_timeout = "60m"
   shutdown_command = "sudo poweroff"
   # export
-  # format = "ova"
+  format = "ova"
+  output_directory = "${var.output_directory}"
 }

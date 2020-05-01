@@ -1,9 +1,7 @@
 #!/bin/bash
 set -o nounset -o pipefail -o errexit
 
-PFREPO=${PFREPO:-packetfence}
-PFPACKAGE=${PFPACKAGE:-packetfence}
-PFBRANCH=${PFBRANCH:-stable}
+# Variables are set using environment variables
 
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
