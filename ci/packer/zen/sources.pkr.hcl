@@ -6,7 +6,7 @@ source "virtualbox-iso" "centos-7" {
   headless = "true"
   vboxmanage = [
     ["modifyvm", "{{.Name}}", "--cpus", "4"],
-    ["modifyvm", "{{.Name}}", "--memory", "8192"],
+    ["modifyvm", "{{.Name}}", "--memory", "12288"],
     ["modifyvm", "{{.Name}}", "--uartmode1", "disconnected"]
   ]
   iso_url = "http://ftp.pasteur.fr/mirrors/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso"
@@ -32,7 +32,7 @@ source "vmware-iso" "centos-7" {
   disk_adapter_type = "scsi"
   headless = "true"
   vmx_data {
-    memsize = 8192
+    memsize = 12288
     numvcpus = 4
   } 
   iso_url = "http://ftp.pasteur.fr/mirrors/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso"
