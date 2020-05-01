@@ -15,7 +15,7 @@ VM_NAME=$(PKR_VAR_vm_name)
 zen:
 	PKR_VAR_vm_name=$(PKR_VAR_vm_name) \
 	PKR_VAR_output_directory=$(PKR_VAR_output_directory) \
-	packer build .
+	packer build -only="virtualbox-iso.*" .
 	PF_VERSION=$(PF_VERSION) \
 	RESULT_DIR=$(RESULT_DIR) \
 	VM_NAME=$(VM_NAME) \
