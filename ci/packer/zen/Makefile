@@ -23,7 +23,7 @@ zen:
 
 .PHONY: clean
 clean:
-	rm -rf results/
+	rm -rf $(RESULT_DIR)
 
 .PHONY: zen-release
 zen-release:
@@ -40,3 +40,12 @@ zen-devel:
 	PKR_VAR_pf_package=packetfence \
 	PKR_VAR_pf_branch=devel \
 	zen \
+
+#==============================================================================
+# Targets used for local tests
+#==============================================================================
+.PHONY: zen-test
+zen-test:
+	make \
+	PF_VERSION=vX.Y.Z \
+	zen-devel \
