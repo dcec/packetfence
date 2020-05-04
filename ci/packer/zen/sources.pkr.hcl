@@ -24,9 +24,6 @@ source "virtualbox-iso" "centos-7" {
   shutdown_command = "sudo poweroff"
   # export
   format = "ova"
-  export_opts = [
-    "--manifest"
-   ]
   output_directory = "${var.output_directory}"
 }
 
